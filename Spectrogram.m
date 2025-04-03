@@ -34,7 +34,7 @@ for i=1:200
         sub1=subplot(4,1,1);
         patient_x=patient_xyz(:,4)-patient_xyz(1,4);
         [s,f,t] =spectrogram(patient_x,window_length,overlap,f,  fs, 'yaxis');
-        myPlotSpectrogram (s,f,t);
+        CustomPlotSpectrogram(s,f,t, 'X axis (Hz)');
         time_storedApples =(samples_storedApples(:, 2)-(patient_xyz(1,2)))/1000; 
         y_lim= get(gca, 'YLim');
         z_lim= max(max(20*log10(abs(s))));
@@ -49,7 +49,7 @@ for i=1:200
         sub2= subplot(4,1,2);
         patient_y=patient_xyz(:,5)-patient_xyz(1,5);
         [s,f,t] = spectrogram(patient_y,window_length,overlap, f, fs,'yaxis');
-        myPlotSpectrogram (s,f,t);      
+        CustomPlotSpectrogram(s,f,t, 'Y axis (Hz)');      
         sub2.Tag='1';
         ax2 = findobj(gcf,'Tag','1'); 
         hold(ax2,'on');
@@ -62,7 +62,7 @@ for i=1:200
         sub3= subplot(4,1,3);
         patient_z=patient_xyz(:,6)-patient_xyz(1,6);
         [s,f,t] = spectrogram(patient_z,window_length,overlap, f, fs,'yaxis');
-        myPlotSpectrogram (s,f,t);
+        CustomPlotSpectrogram(s,f,t, 'Z axis(Hz)');
         sub3.Tag='1';
         ax3 = findobj(gcf,'Tag','1'); 
         hold(ax3,'on');
@@ -73,7 +73,7 @@ for i=1:200
 
         sub4= subplot(4,1,4);
         [s,f,t] = spectrogram((abs(patient_x)+abs(patient_y)+abs(patient_z)),window_length,overlap, f, fs,'yaxis');
-        myPlotSpectrogram (s,f,t);
+        CustomPlotSpectrogram(s,f,t, 'Total (Hz)');
         sub4.Tag='1';
         ax4 = findobj(gcf,'Tag','1'); 
         hold(ax4,'on');
