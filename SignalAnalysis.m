@@ -91,7 +91,6 @@ end
 cd (rootfolder)
 end 
 
-
 function [hypothesis_values_freq,p_values_freq,averagePower,stdPower]= test_frequency(avg_NoPain, avg_Pain)
 
 h_NoPain= zeros(4,3);
@@ -126,7 +125,6 @@ for k = 1:4
 end
 end
 
-
 %Duration of the spectrograms 
 function duration_patients= calculateDuration(groupname)
 
@@ -152,7 +150,6 @@ for i=1:60
 end
 cd (rootfolder)
 end 
-
 
 function [hypothesis_value_duration, p_value_duration]= test_duration(duration_NoPain,duration_Pain)
 %Check normality
