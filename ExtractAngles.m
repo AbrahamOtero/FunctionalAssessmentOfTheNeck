@@ -15,6 +15,7 @@ rootfolder = pwd;
 patients= dir(fullfile(rootfolder,patientsgroup,'*.csv'));
 
 for i = 1:length(patients)
+    disp("Processing Pte_"+i+".csv")
     path = fullfile(rootfolder,patientsgroup);
     opts = detectImportOptions(fullfile(path, patients(i).name));
     opts = setvartype(opts,'string');

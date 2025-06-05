@@ -15,7 +15,7 @@ global B_1_start B_1_end B_2_start B_2_end B_3_start B_3_end
 
 f = [B_1_start:0.01:B_1_end, B_2_start:0.01:B_2_end, B_3_start:0.01:B_3_end];
 
-for i=1:200
+for i=1:60
     if isfile("Pte_"+i+"_preprocessed.csv")
         read_data= readtable("Pte_"+i+"_preprocessed.csv");
 
@@ -30,7 +30,8 @@ for i=1:200
         fs= 50;
         window_length =128;
         overlap = 18;
-        figure;
+        figure('Position', [100, 100, 800, 600]);
+        %figure;
         sub1=subplot(4,1,1);
         patient_x=patient_xyz(:,4)-patient_xyz(1,4);
         [s,f,t] =spectrogram(patient_x,window_length,overlap,f,  fs, 'yaxis');

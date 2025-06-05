@@ -3,9 +3,9 @@ global B_1_start B_1_end B_2_start B_2_end B_3_start B_3_end
 B_1_start=0;
 B_1_end = 0.1;
 B_2_start = 0.1;
-B_2_end = 0.5;
-B_3_start = 0.5;
-B_3_end = 5;
+B_2_end = .5;
+B_3_start = .5;
+B_3_end = 5.0;
 
 average_NoPain= calculateSpectralPower('NoPain');
 average_Pain= calculateSpectralPower('Pain');
@@ -45,6 +45,7 @@ cd (groupfolder);
 
 for i=1:60
     if isfile("Pte_"+i+"_preprocessed.csv")
+        disp("Processing Pte_"+i+"_preprocessed.csv")
         read_data= readtable("Pte_"+i+"_preprocessed.csv");
         read_data.Var3 = string(read_data.Var3);
         read_data.Var1 = num2str(read_data.Var1);
